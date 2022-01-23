@@ -8,7 +8,9 @@ import { Component, OnInit } from '@angular/core';
 export class TictactoeComponent implements OnInit {
   
    board:string[][]=[['', '', ''],['', '', ''], ['','', '' ]];
-   //IsClicked:boolean=false;
+   player:number[][]= [[0 , 0,0 ],[0 ,0  ,0 ], [0,0, 0 ]];
+   IsPlayer:number =1;
+   currentStyles: Record<string, string> = {};
    Option:string='';
    ans:boolean=false;
    count:number =0;
@@ -23,12 +25,21 @@ export class TictactoeComponent implements OnInit {
   ShowOption(i:number,j:number)
   {
     
-   // this.IsClicked = !this.IsClicked;
     var arr = ['X', 'O', ' '];
     this.count++;
     this.Option = arr[this.count%3];
-    //this.IsClicked?'X':'O';
-    this.board[i][j] = this.Option;
+    this.board[i][j] = this.Option;  
+    if(this.IsPlayer)
+    {
+      this.player[i][j] = this.IsPlayer;
+      this.IsPlayer = 0;
+    }
+    else
+    {
+      this.player[i][j] = this.IsPlayer;
+      this.IsPlayer = 1;
+    }
+  
 
 
   }
@@ -64,10 +75,10 @@ export class TictactoeComponent implements OnInit {
       {
       
         if(this.board[i][j]==curr) j++;
-        else break;
+        else break; //if any mismatch then move to next row
        
       }
-      if(j==3)
+      if(j==3)  //found a row having all values are same
       {
         this.ans = true;
         return this.ans;
@@ -80,7 +91,7 @@ export class TictactoeComponent implements OnInit {
   GetColResult()
   {
 
-    //iterate row wise
+    //iterate col wise
     var i=0,j=0;
     for( i=0;i<3;i++)
     {
@@ -89,14 +100,11 @@ export class TictactoeComponent implements OnInit {
       j=1;
       while(j<3)
       {
-        if(this.board[j][i]==curr)
-        {
-          j++;
-        }
-        else break;
+        if(this.board[j][i]==curr) j++;
+        else break; //if any mismatch then move to next col
 
       }
-      if(j==3)
+      if(j==3) //found a column having all values are same
       {
         this.ans = true;
         return this.ans;
@@ -119,9 +127,24 @@ export class TictactoeComponent implements OnInit {
     var row = this.GetRowResult();
     var col = this.GetColResult();
     this.ans= row || col;
+    this.setCurrentStyles();
     }
   }
-
+  
+  
+setCurrentStyles() {
+  // CSS styles: set per current state of component properties
+  this.currentStyles = {
+    'background-color': this.ans  ? 'green': 'red',
+    'color':  'white',
+    'font-style':  this.ans  ? 'italic' : 'normal',
+    'font-weight': 'bold'  ,
+    'font-size':   '20px',
+    'width': '100px',
+    'height': '100px'
+    
+  };
+}
 
   
 }
