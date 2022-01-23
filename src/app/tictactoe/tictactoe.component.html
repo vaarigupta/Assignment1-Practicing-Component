@@ -20,17 +20,17 @@
 
 <hr>
 <div class="row">
-    <div class="col-lg-4">
+    <!-- <div class="col-lg-4">
        {{IsPlayer}}
-    </div>
-    <div class="col-lg-4">
+    </div> -->
+    <div class="col-lg-6">
         <button style="margin: 10px auto;"
         type="button"
         class="btn btn-primary" 
         (click)="GetResult()"
         >Get result</button>
     </div>
-    <div class="col-lg-4">
+    <div class="col-lg-6">
         <p 
         *ngIf="IsResultBtnPressed" 
         [ngStyle]="currentStyles"
