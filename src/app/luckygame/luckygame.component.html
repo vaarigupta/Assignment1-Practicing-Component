@@ -1,0 +1,49 @@
+<div class="container">
+ <h1 style="margin: 10px auto; color:deeppink;">Lucky Game</h1>
+ <hr>
+ <div class="row">
+    <div class="col-lg-12">
+        <div class="board">
+            <div 
+            *ngFor="let row of board;let i=index" >
+                <div *ngFor="let cell of row;let j=index">
+                <button   class="cell"           
+                (click)="ShowOption(i,j)"
+                [disabled]= "DisabledCheck(i,j)" >
+                {{board[i][j]}}
+                </button> 
+                </div>
+            </div>
+        </div>
+
+    </div>
+ </div>
+<hr>
+<div class="row">
+    <div class="col-lg-4 col-sm-4">
+        <button style="margin: 10px auto;"
+        type="button"
+        class="btn btn-primary" 
+        (click)="GetResult()"
+        >Get result</button>
+    </div>
+    <div class="col-lg-4 col-sm-4">
+        <button  
+        style="margin: 10px auto;"
+        type="button"
+        class="btn btn-warning"          
+        (click)="ResetBoard()" >
+        Reset Board
+        </button> 
+    </div>
+    <div class="col-lg-4 col-sm-4"
+    *ngIf="IsResultBtnPressed" >
+        <button class="btn"
+        [ngClass]="{'btn-success':ans}"
+        [ngClass]="{'btn-danger':!ans}"
+        >
+        {{ans? 'Won':'Lose'}}
+        </button> 
+    </div>
+</div>
+</div>

@@ -1,12 +1,12 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppComponent } from './app.component';
-import { TictactoeComponent } from './tictactoe/tictactoe.component';
+import { luckygameComponent } from './luckygame/luckygame.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    TictactoeComponent
+    luckygameComponent
   ],
   imports: [
     BrowserModule

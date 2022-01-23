@@ -1,21 +1,21 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-tictactoe',
-  templateUrl: './tictactoe.component.html',
-  styleUrls: ['./tictactoe.component.css']
+  selector: 'app-luckygame',
+  templateUrl: './luckygame.component.html',
+  styleUrls: ['./luckygame.component.css']
 })
-export class TictactoeComponent implements OnInit {
+export class luckygameComponent implements OnInit {
   
-   board:string[][]=[['', '', ''],['', '', ''], ['','', '' ]];
-   player:number[][]= [[0 , 0,0 ],[0 ,0  ,0 ], [0,0, 0 ]];
-   IsPlayer:number =1;
-   currentStyles: Record<string, string> = {};
+   board:string[][]=[['*', '*', '*'],['*', '*', '*'], ['*','*', '*' ]];
+   IsClicked:number[][]= [[0 ,0,0 ],[0 ,0  ,0 ], [0,0, 0 ]];
+  // currentStyles: Record<string, string> = {};
    Option:string='';
    ans:boolean=false;
    count:number =0;
    IsResultBtnPressed:boolean= false;
    IsBoardFilled:boolean = false;
+   IsDisabled:boolean = false;
   constructor() { 
     
   }
@@ -24,24 +24,31 @@ export class TictactoeComponent implements OnInit {
   }
   ShowOption(i:number,j:number)
   {
-    
-    var arr = ['X', 'O', ' '];
-    this.count++;
-    this.Option = arr[this.count%3];
+    this.count++; 
+    this.Option = (Math.ceil(Math.random()*10)%10).toString();
     this.board[i][j] = this.Option;  
-    if(this.IsPlayer)
+    this.IsClicked[i][j] = 1;
+  }
+  DisabledCheck(i:number,j:number)
+  {
+    if(this.IsClicked[i][j]==1)
     {
-      this.player[i][j] = this.IsPlayer;
-      this.IsPlayer = 0;
+      return this.IsDisabled = true;
     }
-    else
+    else 
     {
-      this.player[i][j] = this.IsPlayer;
-      this.IsPlayer = 1;
+      return this.IsDisabled = false;
     }
-  
-
-
+  }
+  ResetBoard()
+  {
+    this.board = [['*', '*', '*'],['*', '*', '*'], ['*','*', '*' ]]; 
+    this.IsClicked =  [[0 ,0,0 ],[0 ,0  ,0 ], [0,0, 0 ]];
+    this.ans=false;
+     this.count =0;
+     this.IsResultBtnPressed = false;
+     this.IsBoardFilled = false;
+     
   }
   CheckBoardFilled()
   {
@@ -50,7 +57,7 @@ export class TictactoeComponent implements OnInit {
     {
       for(j=0;j<3;j++)
       {
-        if(this.board[i][j]=='') 
+        if(this.board[i][j]=='*') 
         {
           this.IsBoardFilled = false;
           return this.IsBoardFilled;
@@ -127,24 +134,24 @@ export class TictactoeComponent implements OnInit {
     var row = this.GetRowResult();
     var col = this.GetColResult();
     this.ans= row || col;
-    this.setCurrentStyles();
     }
   }
   
   
-setCurrentStyles() {
-  // CSS styles: set per current state of component properties
-  this.currentStyles = {
-    'background-color': this.ans  ? 'green': 'red',
-    'color':  'white',
-    'font-style':  this.ans  ? 'italic' : 'normal',
-    'font-weight': 'bold'  ,
-    'font-size':   '20px',
-    'width': '100px',
-    'height': '100px'
+// setCurrentStyles() {
+//   // CSS styles: set per current state of component properties
+//   this.currentStyles = {
+//     'background-color': this.ans  ? 'green': 'red',
+//     'color':  'white',
+//     'font-style':  this.ans  ? 'italic' : 'normal',
+//     'font-weight': 'bold'  ,
+//     'font-size':   '20px',
+//     'width': '100px',
+//     'height': '50px',
+//     'font-family' : '"Permanent Marker", cursive'
     
-  };
-}
+//   };
+//}
 
   
 }

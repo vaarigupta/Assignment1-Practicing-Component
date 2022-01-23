@@ -1,5 +1,18 @@
 <div class="jumbotron jumbotron-fluid">
-  <div class="container app-box">
-    <app-tictactoe></app-tictactoe>
+  <div class="row">
+    <div class="container  col-sm-4"
+    style="margin: 10px auto;"
+    >
+      <ul class="rules jumbotron">
+        <li>You are given board filled with * values</li>
+        <li>You are given a chance to click on each cell of board. When you click, a number is appeared on the board. After that, you cannot click or you can say , clicking on the cell will not generate any new number. (Note: Values are single-digit number (0-9) all inclusive)</li>
+        <li>When all the cell are clicked once, then you can check the result</li>
+        <li>The Winner of the game will be the one which has all the same values either on any row or column</li>
+      </ul>
+    </div>
+    <div class="container app-box col-sm-6">
+      <app-luckygame></app-luckygame>
+    </div>
   </div>
+
 </div>
