@@ -1,0 +1,23 @@
+<div class="container">
+ <h1>Tic tac Toe</h1>
+<div class="board">
+<div 
+*ngFor="let row of board;let i=index" >
+<div *ngFor="let cell of row;let j=index"
+class="cell"
+(click)="ShowOption(i,j)"
+>
+{{board[i][j]}}
+</div>
+</div>
+</div>
+
+<button 
+class="btn btn-primary" 
+(click)="GetResult()"
+>Get result</button>
+
+<p *ngIf="IsBoardFilled && IsResultBtnPressed && ans " class="bg-success text-white">Won</p>
+<p *ngIf="IsBoardFilled && !ans && IsResultBtnPressed " class="bg-danger text-white">Lose</p>
+
+</div>
