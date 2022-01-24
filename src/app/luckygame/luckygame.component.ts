@@ -9,7 +9,6 @@ export class luckygameComponent implements OnInit {
   
    board:string[][]=[['*', '*', '*'],['*', '*', '*'], ['*','*', '*' ]];
    IsClicked:number[][]= [[0 ,0,0 ],[0 ,0  ,0 ], [0,0, 0 ]];
-  // currentStyles: Record<string, string> = {};
    Option:string='';
    ans:boolean=false;
    count:number =0;
@@ -137,21 +136,5 @@ export class luckygameComponent implements OnInit {
     }
   }
   
-  
-// setCurrentStyles() {
-//   // CSS styles: set per current state of component properties
-//   this.currentStyles = {
-//     'background-color': this.ans  ? 'green': 'red',
-//     'color':  'white',
-//     'font-style':  this.ans  ? 'italic' : 'normal',
-//     'font-weight': 'bold'  ,
-//     'font-size':   '20px',
-//     'width': '100px',
-//     'height': '50px',
-//     'font-family' : '"Permanent Marker", cursive'
-    
-//   };
-//}
-
   
 }
