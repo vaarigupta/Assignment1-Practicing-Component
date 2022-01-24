@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "Assignment1-Practicing-Component": {
+    "lucky-game": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:application": {
@@ -17,7 +17,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/assignment1-practicing-component",
+            "outputPath": "dist/lucky-game",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -69,10 +69,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "Assignment1-Practicing-Component:build:production"
+              "browserTarget": "lucky-game:build:production"
             },
             "development": {
-              "browserTarget": "Assignment1-Practicing-Component:build:development"
+              "browserTarget": "lucky-game:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -80,7 +80,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "Assignment1-Practicing-Component:build"
+            "browserTarget": "lucky-game:build"
           }
         },
         "test": {
@@ -103,5 +103,5 @@
       }
     }
   },
-  "defaultProject": "Assignment1-Practicing-Component"
+  "defaultProject": "lucky-game"
 }

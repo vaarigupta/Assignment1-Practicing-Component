@@ -8,6 +8,7 @@
     cursor: pointer;
     line-height: 100px;
     font-size: 60px;
+    color: deeppink;
 }
 
 .board {
@@ -20,11 +21,17 @@
 }
 .rules-heading
 {
-    font-size: 60px;
+    font-size: 80px;
     color:deeppink;
     font-family: cursive, Arial, Helvetica, sans-serif;
     margin-top: 20px;
     margin-bottom: 20px;
     margin-left: 20px;
     margin-right: 20px;
+}
+.button-box
+{
+    margin-top: 10px;
+    margin-bottom: 10px;
+    margin-right: 10px;
 }
