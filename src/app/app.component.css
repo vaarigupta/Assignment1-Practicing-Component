@@ -1,8 +1,9 @@
 .rules
 { 
-    font-size: 20px;
+    font-size: 22px;
+    font-weight: bold;
     color:deeppink;
-    font-family: monospace, Arial, Helvetica, sans-serif;
+    font-family: Garamond, sans-serif;
     margin-top: 20px;
     margin-bottom: 20px;
     margin-left: 20px;
