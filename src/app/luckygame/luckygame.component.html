@@ -38,14 +38,19 @@
     </div>
     <div class="col-lg-4 col-sm-4"
     *ngIf="IsResultBtnPressed" >
-        <button
+        <button *ngIf = "ans"
         type="button"
         style="margin: 10px auto;"
-        class="btn"
-        [ngClass]="{'btn-success':ans}"
-        [ngClass]="{'btn-danger':!ans}"
+        class="btn btn-success"
         >
-        {{ans? 'Won':'Lose'}}
+        Won
+        </button> 
+        <button *ngIf = "!ans"
+        type="button"
+        style="margin: 10px auto;"
+        class="btn btn-danger"
+        >
+         Lose
         </button> 
     </div>
 </div>
